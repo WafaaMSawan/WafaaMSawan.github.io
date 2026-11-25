@@ -6,53 +6,72 @@
 <title>Wafaa Mohamed Elsayed | AI Engineer</title>
 <meta name="description" content="AI Engineer working on RAG systems, machine learning, computer vision and NLP.">
 <style>
-  :root { --bg:#0e1020; --card:#171a30; --text:#e9eaf4; --muted:#a3a7c2; --accent:#8b8cff; --line:#2a2e4d; }
-  :root.light { --bg:#f7f7fc; --card:#fff; --text:#171a30; --muted:#555a78; --accent:#4b45c6; --line:#dfe0ee; }
+  :root { --bg:#eef2fa; --card:#fff; --text:#0f1730; --muted:#515b78; --line:#0f1730; --hi:#2457e6; --ink:#0f1730; }
+  :root.dark { --bg:#0b1020; --card:#131a30; --text:#e8edfb; --muted:#9ca8c9; --line:#37436a; }
   * { box-sizing:border-box; margin:0; padding:0; }
   html { scroll-behavior:smooth; }
-  body { background:var(--bg); color:var(--text); font:16px/1.65 system-ui, "Segoe UI", sans-serif; }
-  a { color:var(--accent); text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  .wrap { max-width:960px; margin:auto; padding:0 20px; }
-  nav { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); z-index:1; }
-  nav .wrap { display:flex; gap:18px; align-items:center; height:58px; overflow-x:auto; white-space:nowrap; }
-  nav a { color:var(--muted); font-size:.93rem; }
-  nav button { margin-left:auto; background:none; border:1px solid var(--line); color:var(--text); border-radius:8px; padding:5px 10px; cursor:pointer; }
-  header { display:flex; gap:40px; align-items:center; justify-content:space-between; padding-top:72px; padding-bottom:48px; }
-  h1 { font-size:clamp(2rem,6vw,3.2rem); line-height:1.15; margin-bottom:12px; }
-  h2 { font-size:1.6rem; margin-bottom:22px; }
-  h3 { font-size:1.08rem; line-height:1.4; }
-  header img { width:200px; height:200px; border-radius:50%; border:3px solid var(--accent); }
-  .role { color:var(--accent); font-weight:600; }
-  .muted, .meta { color:var(--muted); }
-  .meta { font-size:.88rem; margin:4px 0 10px; }
-  .buttons { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-  .btn { border:1px solid var(--accent); border-radius:10px; padding:9px 18px; }
-  .btn.main { background:var(--accent); color:var(--bg); font-weight:600; }
-  section { padding:44px 0; border-top:1px solid var(--line); scroll-margin-top:58px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; }
-  ul { padding-left:20px; }
-  li { margin-bottom:7px; }
-  .tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
-  .tags span { border:1px solid var(--line); border-radius:20px; padding:2px 11px; font-size:.82rem; color:var(--muted); }
+  body { background:var(--bg) radial-gradient(var(--muted) .6px, transparent .7px) 0 0/22px 22px; color:var(--text); font:16px/1.6 system-ui,"Segoe UI",sans-serif; }
+  a { color:inherit; }
+  .wrap { max-width:1060px; margin:auto; padding:0 18px; }
+  nav { position:sticky; top:10px; z-index:2; }
+  nav .wrap > div { display:flex; gap:20px; align-items:center; overflow-x:auto; white-space:nowrap; background:var(--ink); color:#fff; border-radius:40px; padding:9px 12px 9px 22px; }
+  nav a { text-decoration:none; font-size:.9rem; } nav a:hover { color:#8fb0ff; }
+  button, input { font:inherit; }
+  nav button { margin-left:auto; border:0; background:var(--hi); color:#fff; border-radius:30px; padding:2px 14px; cursor:pointer; }
+  header { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding-top:34px; }
+  header > div, .card { background:var(--card); border:1.5px solid var(--line); border-radius:22px; padding:26px; box-shadow:5px 5px 0 var(--line); }
+  h1 { font-size:clamp(2.4rem,6vw,4.2rem); line-height:1; letter-spacing:-.04em; margin:16px 0; }
+  h2 { font-size:2rem; letter-spacing:-.03em; margin-bottom:22px; }
+  h2::before { content:""; display:inline-block; width:18px; height:18px; background:var(--hi); border:1.5px solid var(--line); border-radius:5px; margin-right:12px; }
+  h3 { font-size:1.1rem; line-height:1.35; }
+  header img { width:84px; height:84px; border-radius:20px; border:1.5px solid var(--line); }
+  .role, .meta { font-family:ui-monospace,Consolas,monospace; font-size:.8rem; }
+  .role { display:inline-block; background:var(--hi); color:#fff; border-radius:6px; padding:2px 9px; margin-top:16px; }
+  .muted, .meta { color:var(--muted); } .meta { margin:6px 0 10px; }
+  .buttons, .chips, .tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; }
+  .btn, .chips button { border:1.5px solid var(--line); border-radius:30px; padding:7px 16px; text-decoration:none; background:transparent; color:var(--text); cursor:pointer; }
+  .btn.main, .chips button[aria-pressed="true"] { background:var(--hi); color:#fff; }
+  .map { display:flex; flex-direction:column; }
+  #map { flex:1; width:100%; min-height:340px; }
+  #map line { stroke:var(--muted); stroke-width:1; opacity:.4; }
+  #map a { cursor:pointer; text-decoration:none; }
+  #map circle { fill:var(--hi); stroke:var(--line); stroke-width:1.5; transition:r .2s; }
+  #map a:hover circle, #map a:focus circle { r:17; }
+  #map text { fill:var(--text); font:12px ui-monospace,Consolas,monospace; text-anchor:middle; }
+  section { padding-top:70px; scroll-margin-top:30px; }
+  .ask form { display:flex; gap:10px; }
+  .ask input { flex:1; min-width:0; background:var(--bg); color:var(--text); border:1.5px solid var(--line); border-radius:30px; padding:10px 18px; }
+  #answer { margin-top:16px; } #answer a { display:block; margin-top:8px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+  #projects .grid { grid-template-columns:repeat(6,1fr); margin-top:22px; }
+  #projects .card { grid-column:span 2; transition:transform .2s; }
+  #projects .card:nth-child(-n+2) { grid-column:span 3; }
+  #projects .card:hover { transform:translate(-3px,-3px); }
+  #projects .card:nth-child(6) { grid-column:1/-1; }
+  #projects .grid.filtered .card { grid-column:span 3; }
+  .card[hidden] { display:none; }
+  .card:target, .card.found { background:color-mix(in srgb,var(--hi) 18%,var(--card)); }
+  ul { padding-left:20px; } li { margin-bottom:7px; }
+  .tags span { font:.75rem ui-monospace,Consolas,monospace; border:1px solid var(--muted); border-radius:6px; padding:1px 8px; }
   .card p + p { margin-top:10px; }
-  .stack > * + * { margin-top:18px; }
-  footer { border-top:1px solid var(--line); padding:26px 0; color:var(--muted); font-size:.88rem; }
-  @media (max-width:640px) { header { flex-direction:column-reverse; align-items:flex-start; padding-top:40px; } header img { width:130px; height:130px; } }
+  .stack > * + * { margin-top:20px; }
+  footer { padding:60px 0 28px; color:var(--muted); font-size:.85rem; }
+  @media (max-width:760px) { header { grid-template-columns:1fr; } #projects .grid .card { grid-column:1/-1 !important; } }
+  @media (prefers-reduced-motion:reduce) { * { transition:none !important; scroll-behavior:auto !important; } }
 </style>
 </head>
 <body>
 
-<nav><div class="wrap">
+<nav><div class="wrap"><div>
   <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a>
   <a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
   <button id="theme" type="button" aria-label="Toggle light and dark theme">◐</button>
-</div></nav>
+</div></div></nav>
 
 <main class="wrap">
 <header>
   <div>
+    <img src="https://avatars.githubusercontent.com/u/112361602?v=4" alt="Wafaa Mohamed Elsayed"><br>
     <p class="role">AI Engineer · Machine Learning · Data Science</p>
     <h1>Wafaa Mohamed Elsayed</h1>
     <p class="muted">I build AI systems, from retrieval-augmented assistants to machine learning and computer vision pipelines.</p>
@@ -61,10 +80,23 @@
       <a class="btn main" href="#projects">View projects</a>
       <a class="btn" href="https://github.com/WafaaMSawan">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/wafaa-mohamed-elsayed-b63132199">LinkedIn</a>
+      <a class="btn" href="https://wa.me/201080212787" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
-  <img src="https://avatars.githubusercontent.com/u/112361602?v=4" alt="Wafaa Mohamed Elsayed">
+  <div class="map">
+    <p class="meta">project map · click a node</p>
+    <svg id="map" viewBox="0 0 440 360" role="group" aria-label="Map of projects"></svg>
+  </div>
 </header>
+
+<section id="ask" class="ask">
+  <div class="card">
+    <h2>Ask my portfolio</h2>
+    <form><input id="q" aria-label="Search the portfolio" placeholder="Try: RAG, AWS, computer vision, teaching"><button class="btn main">Search</button></form>
+    <p class="meta">Keyword search over this page. Runs in your browser.</p>
+    <div id="answer" aria-live="polite"></div>
+  </div>
+</section>
 
 <section id="about">
   <h2>About</h2>
@@ -99,40 +131,41 @@
 
 <section id="projects">
   <h2>Projects</h2>
+  <div class="chips"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="genai" aria-pressed="false">GenAI</button><button type="button" data-filter="nlp" aria-pressed="false">NLP</button><button type="button" data-filter="ml" aria-pressed="false">Machine Learning</button><button type="button" data-filter="vision" aria-pressed="false">Vision</button><button type="button" data-filter="cloud" aria-pressed="false">Cloud</button></div>
   <div class="grid">
-    <article class="card">
+    <article class="card" id="emoji" data-cat="nlp" data-short="Emoji NLP">
       <h3>Emoji Sentiment in Developer Communications</h3>
       <p class="meta">2026 · Capstone team project</p>
       <p>Compared emoji use by humans and AI coding agents in GitHub pull requests. Contributed to labeling about 11K PRs with three LLM annotators; LLM voting reached about 0.77 macro-F1, and agents were identifiable from emoji features (0.87 macro-F1).</p>
       <div class="tags"><span>BERT</span><span>LLM APIs</span><span>Scikit-learn</span><span>SciPy</span></div>
     </article>
-    <article class="card">
+    <article class="card" id="aws" data-cat="genai cloud" data-short="AWS Chat">
       <h3>Cloud-Based Chat Assistant on AWS</h3>
       <p class="meta">2026 · Team project</p>
       <p>End-to-end LLM pipeline with Terraform, a 3-node Spark EMR cluster processing 200K+ records, QLoRA fine-tuning of Qwen2.5-1.5B and deployment with Ollama and OpenWebUI.</p>
       <div class="tags"><span>AWS</span><span>Terraform</span><span>PySpark</span><span>Unsloth</span><span>Docker</span></div>
       <p><a href="https://github.com/BasselEssam/chat_assistant_on_AWS">View code →</a></p>
     </article>
-    <article class="card">
+    <article class="card" id="churn" data-cat="ml cloud" data-short="Churn">
       <h3>Customer Churn App</h3>
       <p class="meta">2026 · Team project</p>
       <p>ML pipeline that identifies customers at risk of leaving, with a Streamlit dashboard, containerized with Docker and hosted on Amazon ECR.</p>
       <div class="tags"><span>Scikit-learn</span><span>Streamlit</span><span>Docker</span><span>AWS ECR</span></div>
       <p><a href="https://github.com/WafaaMSawan/Customer-Churn-APP-with-ML">View code →</a></p>
     </article>
-    <article class="card">
+    <article class="card" id="cv" data-cat="genai nlp" data-short="CV Analyzer">
       <h3>AI-Powered CV Analyzer</h3>
       <p class="meta">2026 · Team project</p>
       <p>Web app that extracts data from PDF CVs, scores them against job descriptions, answers questions with a RAG agent and drafts cover letters.</p>
       <div class="tags"><span>Flask</span><span>LangGraph</span><span>ChromaDB</span><span>OpenAI API</span></div>
     </article>
-    <article class="card">
+    <article class="card" id="malware" data-cat="ml" data-short="Malware">
       <h3>Malware Classification</h3>
       <p class="meta">2026 · Team project</p>
       <p>Binary PE malware detection on EMBER 2018 (about 800K training samples) with byte n-grams and header features, tested under 11 adversarial perturbations.</p>
       <div class="tags"><span>LinearSVM</span><span>Random Forest</span><span>NumPy</span></div>
     </article>
-    <article class="card">
+    <article class="card" id="video" data-cat="vision" data-short="Video AI">
       <h3>Abnormal Action Detection in Video</h3>
       <p class="meta">2023 · Graduation project</p>
       <p>Detected abnormal human actions in surveillance footage using pretrained YOLOv5 and YOLOv8 with custom post-processing.</p>
@@ -176,9 +209,10 @@
   <div class="buttons">
     <a class="btn main" href="mailto:wafaamsawan@gmail.com">Email me</a>
     <a class="btn" href="https://www.linkedin.com/in/wafaa-mohamed-elsayed-b63132199">LinkedIn</a>
+      <a class="btn" href="https://wa.me/201080212787" target="_blank" rel="noopener">WhatsApp</a>
     <a class="btn" href="https://github.com/WafaaMSawan">GitHub</a>
   </div>
-  <p class="meta">wafaamsawan@gmail.com</p>
+  <p class="meta">wafaamsawan@gmail.com · <a href="https://wa.me/201080212787" target="_blank" rel="noopener">+20 108 021 2787</a></p>
 </section>
 </main>
 
@@ -186,10 +220,66 @@
 
 <script>
   const root = document.documentElement;
-  try { if (localStorage.getItem('theme') === 'light') root.classList.add('light'); } catch (e) {}
+  try { if (localStorage.getItem('mode') === 'dark') root.classList.add('dark'); } catch (e) {}
   document.getElementById('theme').addEventListener('click', () => {
-    const light = root.classList.toggle('light');
-    try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+    const dark = root.classList.toggle('dark');
+    try { localStorage.setItem('mode', dark ? 'dark' : 'light'); } catch (e) {}
+  });
+
+  const projects = [...document.querySelectorAll('#projects .card')];
+  const chips = [...document.querySelectorAll('[data-filter]')];
+  function filter(key) {
+    projects.forEach(p => p.hidden = key !== 'all' && !p.dataset.cat.split(' ').includes(key));
+    chips.forEach(c => c.setAttribute('aria-pressed', c.dataset.filter === key));
+    document.querySelector('#projects .grid').classList.toggle('filtered', key !== 'all');
+  }
+  chips.forEach(c => c.addEventListener('click', () => filter(c.dataset.filter)));
+
+  // Project map: projects that share a category are connected
+  const svg = document.getElementById('map');
+  const points = [[110,75],[300,55],[365,185],[205,165],[285,295],[85,265]];
+  const make = (tag, attrs, parent = svg) => {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+    return parent.appendChild(el);
+  };
+  projects.forEach((a, i) => projects.slice(i + 1).forEach((b, j) => {
+    const other = b.dataset.cat.split(' ');
+    if (a.dataset.cat.split(' ').some(c => other.includes(c))) {
+      const [x1, y1] = points[i], [x2, y2] = points[i + j + 1];
+      make('line', { x1, y1, x2, y2 });
+    }
+  }));
+  projects.forEach((p, i) => {
+    const [cx, cy] = points[i];
+    const link = make('a', { href: '#' + p.id });
+    make('circle', { cx, cy, r: 13 }, link);
+    make('text', { x: cx, y: cy + 33 }, link).textContent = p.dataset.short;
+    link.addEventListener('click', () => filter('all'));
+  });
+
+  // Search: rank cards by how many query words they contain
+  const cards = [...document.querySelectorAll('section:not(#ask) .card')];
+  cards.forEach((c, i) => c.id ||= 'item-' + i);
+  const answer = document.getElementById('answer');
+  document.querySelector('.ask form').addEventListener('submit', e => {
+    e.preventDefault();
+    const words = document.getElementById('q').value.toLowerCase().match(/[a-z0-9+#]{2,}/g) || [];
+    const hits = cards.map(card => {
+      const text = card.innerText.toLowerCase();
+      const score = words.filter(w => new RegExp('(^|[^a-z0-9])' + w.replace(/[+]/g, '\\+')).test(text)).length;
+      return { card, score };
+    }).filter(h => h.score).sort((a, b) => b.score - a.score);
+    filter('all');
+    cards.forEach(c => c.classList.remove('found'));
+    answer.textContent = hits.length ? 'Found ' + hits.length + ' match(es):' : 'No matches. Try a skill or a project name.';
+    hits.slice(0, 4).forEach(({ card }) => {
+      card.classList.add('found');
+      const a = document.createElement('a');
+      a.href = '#' + card.id;
+      a.textContent = '→ ' + card.querySelector('h3').textContent;
+      answer.appendChild(a);
+    });
   });
 </script>
 </body>
